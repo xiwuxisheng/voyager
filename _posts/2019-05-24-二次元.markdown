@@ -10,4 +10,4 @@ author: 习武
 ---
 “灵衣玉佩，一阴一阳；罗生堂下，秋兰长生”。说起二次元的气质美女们，很容易让大家联想到《秦时明月》里面风格迥异，气象万千的美女。
 
-![少司命](/moon/moon_shaoshiming.jpeg)
+![少司命](/assets/images/moon/moon_shaoshiming.jpeg)
