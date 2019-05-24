@@ -1,14 +1,13 @@
 ---
 layout: post
-title:  "欢迎来到习武的个人博客!"
+title:  "帝子降兮北渚，目眇眇兮愁予"
 crawlertitle: "个人博客"
 summary: "非淡泊无以明志，非宁静无以致远"
 date:   2019-05-24 11:09:47 +0700
 categories: posts
-tags: '首页引言'
+tags: '秦时明月'
 author: 习武
 ---
 “灵衣玉佩，一阴一阳；罗生堂下，秋兰长生”。说起二次元的气质美女们，很容易让大家联想到《秦时明月》里面风格迥异，气象万千的美女。
 
-## 少司命 
-![少司命](https://mmbiz.qpic.cn/mmbiz_jpg/oomB7DbywYb4ibutQ64QGmic8Lv3KCiaka9cD8Z1LSW1v6BUxYiaQ05Vf6lAKw7LV6wqA1x8CsM3N1b8UOE1EMtPHw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1) 
+![少司命](/moon/moon_shaoshiming.jpeg)
