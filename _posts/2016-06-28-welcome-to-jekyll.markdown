@@ -1,29 +1,14 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-crawlertitle: "How to use jekyll"
-summary: "Jekyll default page"
-date:   2016-06-28 23:09:47 +0700
+title:  "欢迎来到习武的个人博客!"
+crawlertitle: "个人博客"
+summary: "非淡泊无以明志，非宁静无以致远"
+date:   2019-05-24 11:09:47 +0700
 categories: posts
-tags: 'jekyll'
-author: redVi
+tags: '首页引言'
+author: 习武
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+	“灵衣玉佩，一阴一阳；罗生堂下，秋兰长生”。说起二次元的气质美女们，很容易让大家联想到《秦时明月》里面风格迥异，气象万千的美女。
 
-To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
-
-Jekyll also offers powerful support for code snippets:
-
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
-
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+## 少司命 
+![少司命](https://mmbiz.qpic.cn/mmbiz_jpg/oomB7DbywYb4ibutQ64QGmic8Lv3KCiaka9cD8Z1LSW1v6BUxYiaQ05Vf6lAKw7LV6wqA1x8CsM3N1b8UOE1EMtPHw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1) 
