@@ -1,11 +1,11 @@
 ---
 bg: "owl.jpg"
 layout: page
-title: "About"
-crawlertitle: "Why and how this blog was created"
+title: "关于"
+crawlertitle: "关于"
 permalink: /about/
-summary: "About this blog"
-active: about
+summary: "明月松间照，清泉石上流"
+active: 关于
 ---
 
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)

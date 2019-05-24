@@ -2,10 +2,10 @@
 bg: "tag.jpg"
 layout: page
 permalink: /posts/
-title: "Archive"
-crawlertitle: "All articles"
-summary: "Posts about jekyll"
-active: archive
+title: "索引"
+crawlertitle: "所有文章"
+summary: "遥知不是雪，为有暗香来"
+active: 迁客骚人
 ---
 
 {% for tag in site.tags %}
