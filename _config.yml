@@ -1,44 +1,125 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# ---------------- #
+#   Main Configs   #
+# ---------------- #
+baseurl:
+url: https://xiwuxisheng.github.io
+date_format: "ordinal"
+title: 习武的个人博客
+subtitle: "智慧改变人生"
+description: "习武的个人博客"
+keywords: 博客, 习武, xiwu, xiwuxisheng, xiwuxisheng.github.io
+encoding: "utf-8"
+timezone: Asia/Shenzhen
+side_bar_repo_limit: 5
 
-# Site settings
-title: 个人博客
-email: 756364924@qq.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog
-lang: "zh_CN"
-url: "https://xiwuxisheng.github.io" # the base hostname & protocol for your site
-twitter_username: xiwu
-github_username:  xiwu
-disqus_username:
+# ---------------- #
+#      Author      #
+# ---------------- #
+author: 习武
+organization: 
+organization_url: 
+github_username: 习武
+location: 武汉
+email: 2014024663@qq.com
 
-# Build settings
+# ---------------- #
+#    Navigation    #
+# ---------------- #
+navs:
+  -
+    href: /
+    label: 首页
+
+  -
+    href: /categories/
+    label: 分类
+
+#   -
+#     href: /archives/
+#     label: 归档
+
+  -
+    href: /wiki/
+    label: 维基
+
+  -
+    href: /links/
+    label: 链接
+
+  -
+    href: /about/
+    label: 关于
+
+# ---------------- #
+#       RSS        #
+# ---------------- #
+subscribe_rss: /feed.xml
+
+# ---------------- #
+#      Jekyll      #
+# ---------------- #
 markdown: kramdown
-permalink: /:categories/:title/
-
-# Posts settings
-future: true
-safe: false
+kramdown:
+    input: GFM
+highlighter: rouge
+paginate: 10
 lsi: false
+quiet: false
 excerpt_separator: "\n\n"
+permalink: /:year/:month/:day/:title/
+gems:
+    - jekyll-github-metadata
+    - rouge
+#     - jekyll-html-pipeline
+    - jekyll-paginate
+    - jekyll-sitemap
+    - jekyll-feed
+    - jemoji
+#     - jekyll-mentions
+collections:
+    wiki:
+        output: true
+        permalink: /wiki/:path/
 
-# Theme settings
-compress_html:
-  comments: ["<!-- ", " -->"]
-  clippings: all
-  endings: all
+repository: xiwuxisheng/xiwuxisheng.github.io
 
+# ---------------- #
+#      Comments    #
+# ---------------- #
+# support provider: disqus, gitment, gitalk
+comments_provider: gitalk
+# !!!重要!!! 请修改下面这些信息为你自己申请的
+# !!!Important!!! Please modify infos below to yours
+# https://disqus.com
+disqus:
+    username: 
+# https://imsun.net/posts/gitment-introduction/
+gitment:
+    owner: xiwu
+    repo: blog-comments
+    oauth:
+        client_id: d2e1cbbd298958076462
+        client_secret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+# https://github.com/gitalk/gitalk#install
+gitalk:
+    owner: xiwu
+    repo: blog-comments
+    clientID: d2e1cbbd298958076462
+    clientSecret: b42a4178e5fd4a7cf63189ef4b1453b05c375709
+# 在使用其它评论组件时可点击显示 Disqus
+lazy_load_disqus : false
 
-sass:
-  sass_dir: assets/_sass
-  style: compressed
+# ---------------- #
+#      Search      #
+# ---------------- #
+simple_jekyll_search:
+    # 是否支持全文搜索
+    fulltext: false
+    # 最多显示多少条搜索结果
+    limit: 10
 
-
-images: '/assets/images'
+# ---------------- #
+#    Analytics     #
+# ---------------- #
+google:
+    analytics_id: UA-80669434-1

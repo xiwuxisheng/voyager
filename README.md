@@ -1,73 +1,48 @@
-## Voyager
+# 码志
 
-Just another jekyll theme. Demo: <http://redvi.github.io/voyager>
+我的个人博客：<https://PanLei13.github.io>。
 
-### Feathures:
+## 概览
 
-All HTML files are compressed (see `_layouts/compress.html`).
+<!-- vim-markdown-toc GFM -->
 
-**Post**
+* [效果预览](#效果预览)
+* [贴心提示](#贴心提示)
+* [经验与思考](#经验与思考)
+* [致谢](#致谢)
 
-All post settings can be changed. Example:
+<!-- vim-markdown-toc -->
 
-```
----
-layout: post
-bg: '2016/background.jpg'
-title: "Post Heading"
-crawlertitle: "page title"
-summary: "post description"
-date: 2016-06-29
-tags : ['front-end']
-slug: post-url
-author: "Author"
-categories: posts
----
-```
+## 效果预览
 
-`bg` is a path to background of your article. By default backgrounds are placed in the `assets/images` directory.
+**[在线预览 &rarr;](https://mazhuang.org)**
 
-**Page**
+![screenshot home](https://PanLei13.github.io/assets/images/screenshots/home.png)
 
-If page contains `active` tag, it will be show on site menu.
+## 贴心提示
 
-```
----
-layout: page
-title: "About"
-permalink: /about/
-active: about
----
-```
+1. 排版建议遵照一定的规范，推荐 [中文文案排版指北（简体中文版）][1]。
 
-**Archive**
+2. 在本地预览博客效果可以参考 [Setting up your Pages site locally with Jekyll][2]。
 
-Archive page is sorting posts by tags. No more than one tag in one post.
+## 经验与思考
 
-Good:
+* 简约，尽量每个页面都不展示多余的内容。
 
-```
-tags : ['front-end']
-```
+* 有时一图抵千言，有时可能只会拖慢网页加载速度。
 
-Bad:
+* 言之有物，不做无痛之呻吟。
 
-```
-tags : ['front-end', 'jekyll']
-```
+* 如果写技术文章，那先将技术原理完全理清了再开始写，一边摸索技术一边组织文章效率较低。
 
-Don't forget to change `_config.yml`.
+* 杜绝难断句、难理解的长句子，如果不能将其拆分成几个简洁的短句，说明脑中的理解并不清晰。
 
-**Relative paths**
+* 可以学习一下那些高质量的博主，他们的行文，内容组织方式，有什么值得借鉴的地方。
 
-If your blog is not in the root directory, you can include images with a relative path. For example:
+## 致谢
 
-```
-![my_image]({{ site.images | relative_url }}/image.jpg)
-```
+本博客外观基于 [DONGChuan](https://dongchuan.github.io) 修改，感谢！
 
-## Production environment
-
-Build for production:
-
-`JEKYLL_ENV=production jekyll build`
+[1]: https://github.com/mzlogin/chinese-copywriting-guidelines
+[2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
+[3]: https://PanLei13.github.io/issues/2
