@@ -1,6 +1,6 @@
 # 码志
 
-我的个人博客：<https://PanLei13.github.io>。
+我的个人博客：<http://xiwu.domz.top>。
 
 ## 概览
 
@@ -17,7 +17,7 @@
 
 **[在线预览 &rarr;](https://mazhuang.org)**
 
-![screenshot home](https://PanLei13.github.io/assets/images/screenshots/home.png)
+![screenshot home](http://xiwu.domz.top/assets/images/screenshots/home.png)
 
 ## 贴心提示
 
@@ -45,4 +45,4 @@
 
 [1]: https://github.com/mzlogin/chinese-copywriting-guidelines
 [2]: https://help.github.com/articles/setting-up-your-pages-site-locally-with-jekyll/
-[3]: https://PanLei13.github.io/issues/2
+[3]: http://xiwu.domz.top/issues/2

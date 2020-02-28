@@ -5,7 +5,7 @@ baseurl:
 url: https://xiwuxisheng.github.io
 date_format: "ordinal"
 title: 习武的个人博客
-subtitle: "智慧改变人生"
+subtitle: "非淡泊无以明志，非宁静无以致远"
 description: "习武的个人博客"
 keywords: 博客, 习武, xiwu, xiwuxisheng, xiwuxisheng.github.io
 encoding: "utf-8"
@@ -19,7 +19,7 @@ author: 习武
 organization: 
 organization_url: 
 github_username: 习武
-location: 武汉
+location: 广东深圳
 email: 2014024663@qq.com
 
 # ---------------- #
