@@ -2,7 +2,7 @@
 layout: page
 title: About
 description: 智慧改变人生
-keywords: 潘蕾
+keywords: 习武
 comments: true
 menu: 关于
 permalink: /about/
