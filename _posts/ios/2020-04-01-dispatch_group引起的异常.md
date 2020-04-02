@@ -4,11 +4,13 @@ title:  dispatch_group同步问题
 categories: iOS
 description: dispatch_group同步问题。
 keywords: dispatch_group, 异常, 多线程, 同步
+
 ---
 
 ### 引言
 
 这次需要在这里梳理一下使用dispatch_group_t引起的同步异常问题，具体问题请看下面:
+
 ```
 #0 Thread
 SIGSEGV
@@ -29,7 +31,9 @@ UIKitCore   UIApplicationMain + 212
 Shikamaru   main (main.m:14)
 libdyld.dylib   _start + 4
 ```
+
 从中可以看出这里出现的异常信号SIGSEGV属于野指针信号，意思是程序无效内存中止信号，一般是表示内存不合法，二是产生的错误信息，也指向 _dispatch_group_leave$VARIANT$armv81 + 8，为了解决这个问题，那么这里进行了如下的流程分析：
+
 * 检查代码是否实现了dispatch_group_enter和dispatch_group_leave的配对；
 * 存在请求回调block造成了dispatch_group_enter和dispatch_group_leave的配对数量差；
 * dispatch_group_enter和dispatch_group_leave的配对数量差造成的异常与上图的流程对比；
@@ -40,9 +44,9 @@ libdyld.dylib   _start + 4
 
 ---
 
-###分析过程
+### 分析过程
 
-####代码逻辑配对分析
+#### 代码逻辑配对分析
 
 通过该控制器vc的整体代码逻辑分析，这里是将group对象当作全局对象，然后将每一个请求当作方法进行了拆分，主要是为了方法重用性和独立性，那么也就是说这种方式不太可能出现配对的误差。
 
@@ -93,7 +97,9 @@ libdyld.dylib   _start + 4
 ```
 剩下的就不一一举出了，看得出来代码逻辑上配对是没有问题的。
 
-####运行实际的配对分析
+----
+
+#### 运行实际的配对分析
 
 这里的本意是存在请求的block回调没有调用或者多次调用造成了配对误差，这种猜想是根据如下信息资料来的。
 
@@ -138,6 +144,7 @@ dispatch_group_create(void){
     return dg;
 }
 ```
+
 >这两段代码的结合告诉了我们一个事实：当dq这个信号量加一导致溢出后，dispatch_group_leave就会Crash。通过查阅SDWebImageDownloader.m源码发现：
 
 ```
@@ -159,6 +166,7 @@ dispatch_barrier_sync(self.barrierQueue, ^{
     };
 }
 ```
+
 >SDWebImage的下载器会根据URL做下载任务对应NSOperation映射，也即之前创建的下载回调Block。好，就是这行导致Crash的发生。为什么呢？
 因为SDWebImage的下载器会根据URL做下载任务对应NSOperation映射，相同的URL会映射到同一个未执行的NSOperation。那么通过代码我当A组图片下载完成后，相同的url 回调是B组内 而不是A组内。此时B的计数为4 。当B 图片下载完后，结束计数为 5 。因为B图片enter 的次数为4 ,leave 的次数为5 ,因此会崩溃！
 
@@ -177,9 +185,8 @@ dispatch_barrier_sync(self.barrierQueue, ^{
     [self addNotificationObserverForTask:task];
     [self.lock unlock];
 }
-
-
 ```
+
 ```
 @interface NSURLSessionTask : NSObject <NSCopying, NSProgressReporting>
 //task标识是一个数字型
@@ -193,7 +200,7 @@ dispatch_barrier_sync(self.barrierQueue, ^{
 
 ----
 
-####异常结果对比
+#### 异常结果对比
 
 我们再确认一下配对造成的异常与实际异常结果的对比，可以在对应的请求里多进行一次dispatch_group_leave操作，造成crash，看看异常堆栈信息。
 
@@ -203,7 +210,8 @@ dispatch_barrier_sync(self.barrierQueue, ^{
 
 ----
 
-####与其他使用diaptch_group但未发生异常的对比
+#### 与其他使用diaptch_group但未发生异常的对比
+
 ```
 dispatch_group_t group = dispatch_group_create();
     SKMWeakSelf
@@ -234,7 +242,7 @@ dispatch_group_t group = dispatch_group_create();
 
 >上述是未发生异常的 dispatch_group的使用用法,是不是已经发现问题了，一个是局部定义的group，产生问题的使用的是全局定义的group,多了一个当前self的强引用。那么可以猜想的问题就只剩下一个了那就是self有可能为nil,那么下一步就是进行验证了，执行`dispatch_group_leave(nil)`。
 
-####验证group为nil的结果对比
+#### 验证group为nil的结果对比
 
 ![spec仓库](/assets/images/iOS/dispatch_group_nil.jpeg)
 
@@ -242,7 +250,7 @@ dispatch_group_t group = dispatch_group_create();
 
 ----
 
-####引起为空的条件和场景
+#### 引起为空的条件和场景
 
 上述告知了我们引起异常的原因是`dispatch_group_leave(nil)`了，那么为什么group为nil，也就是为什么self为nil，什么况下self为nil了但是block还会执行，加上这是在一个请求方法里面，那么就很容易猜想，控制器vc本身(self)推出释放了，但是请求已经发出，当然block回调还是会继续执行。而且要达到这种效果要么就是用户很快进来，未等请求完成立马退出，但是平常我们测试的网速都是很快的，要想实践出来，当然必须要靠若望测试了。
 
@@ -252,7 +260,7 @@ dispatch_group_t group = dispatch_group_create();
 
 ----
 
-####完整项目收尾
+#### 完整项目收尾
 
 上面已经分析了异常的分析流程、场景和解决方案，那么为了全面考虑，是否存在漏网之鱼，所以需要整体项目更改，但是这里为什么全局的group和局部定义的group区别这么大，按照原理是方法执行完后，局部变量自动释放，生命周期只在该方法内，所以用弱网环境验证一下，我们执行同样进来控制器vc不等请求完成立马退出，断点，结果如下。
 
@@ -263,6 +271,7 @@ dispatch_group_t group = dispatch_group_create();
 ----
 
 ###总结
+
 * dispatch_group_enter和dispatch_group_leave的配对必须配对。
 * 注意使用dispatch_group时第三方库的影响。
 * 注意group生命周期的管理，特别是弱网环境下的影响。
