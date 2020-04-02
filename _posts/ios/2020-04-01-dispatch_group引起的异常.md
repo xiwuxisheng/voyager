@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  dispatch_group同步问题
+title:  dispatch_group同步异常问题
 categories: iOS
-description: dispatch_group同步问题。
+description: dispatch_group同步异常问题
 keywords: dispatch_group, 异常, 多线程, 同步
 
 ---
