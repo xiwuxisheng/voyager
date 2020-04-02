@@ -36,9 +36,9 @@ libdyld.dylib   _start + 4
 
 * 检查代码是否实现了dispatch_group_enter和dispatch_group_leave的配对；
 * 存在请求回调block造成了dispatch_group_enter和dispatch_group_leave的配对数量差；
-* dispatch_group_enter和dispatch_group_leave的配对数量差造成的异常与上图的流程对比；
+* dispatch_group_enter和dispatch_group_leave的配对数量差造成的异常与引言异常的流程对比；
 * 其他使用dispatch_group未发生异常的比较；
-* group为空造成的异常与上图的流程对比；
+* group为空造成的异常与引言异常的流程对比；
 * 引起为空的条件和场景，实际测试；
 * 整体项目整改；
 
@@ -270,7 +270,7 @@ dispatch_group_t group = dispatch_group_create();
 
 ----
 
-###总结
+### 总结
 
 * dispatch_group_enter和dispatch_group_leave的配对必须配对。
 * 注意使用dispatch_group时第三方库的影响。
