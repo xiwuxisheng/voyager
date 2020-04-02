@@ -252,7 +252,7 @@ dispatch_group_t group = dispatch_group_create();
 
 #### 引起为空的条件和场景
 
-上述告知了我们引起异常的原因是`dispatch_group_leave(nil)`了，那么为什么group为nil，也就是为什么self为nil，什么况下self为nil了但是block还会执行，加上这是在一个请求方法里面，那么就很容易猜想，控制器vc本身(self)推出释放了，但是请求已经发出，当然block回调还是会继续执行。而且要达到这种效果要么就是用户很快进来，未等请求完成立马退出，但是平常我们测试的网速都是很快的，要想实践出来，当然必须要靠若望测试了。
+上述告知了我们引起异常的原因是`dispatch_group_leave(nil)`了，那么为什么group为nil，也就是为什么self为nil，什么况下self为nil了但是block还会执行，加上这是在一个请求方法里面，那么就很容易猜想，控制器vc本身(self)推出释放了，但是请求已经发出，当然block回调还是会继续执行。而且要达到这种效果要么就是用户很快进来，未等请求完成立马退出，但是平常我们测试的网速都是很快的，要想实践出来，当然必须要靠弱网测试了。
 
 ![spec仓库](/assets/images/iOS/dispatch_group_weaknet.jpeg)
 
