@@ -7,8 +7,6 @@ keywords: dispatch_group, 异常, 多线程, 同步
 
 ---
 
-### 引言
-
 这次需要在这里梳理一下使用dispatch_group_t引起的同步异常问题，具体问题请看下面:
 
 ```
