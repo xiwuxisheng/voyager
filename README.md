@@ -1,6 +1,6 @@
 # 码志
 
-我的个人博客：<http://xiwu.domz.top>。
+我的个人博客：<http://xiwu.dockop.com>。
 
 ## 概览
 
